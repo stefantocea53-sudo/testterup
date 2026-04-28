@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Earn Money - Game Rewards</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" as="image" href="download.png" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #080914;
+      --card: #141627;
+      --card2: #1b1e33;
+      --text: #ffffff;
+      --muted: #aeb4cc;
+      --red: #f1163d;
+      --red2: #b90025;
+      --line: rgba(255,255,255,.10);
+      --green: #2dff9a;
+      --yellow: #ffd166;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(241,22,61,.35), transparent 38%),
+        linear-gradient(180deg, #080914, #111425 55%, #070813);
+      color: var(--text);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      padding: 12px 12px 28px;
+    }
+
+    .center {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .age-card,
+    .blocked-card {
+      width: 100%;
+      max-width: 390px;
+      background: rgba(20,22,39,.94);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 24px 18px;
+      text-align: center;
+      box-shadow: 0 22px 55px rgba(0,0,0,.35);
+    }
+
+    .age-logo {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 16px;
+      border-radius: 22px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 0 0 7px rgba(241,22,61,.10);
+    }
+
+    .age-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .badge {
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(241,22,61,.12);
+      border: 1px solid rgba(241,22,61,.24);
+      color: #ffb3c1;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    h2 {
+      font-size: 34px;
+      line-height: 1.03;
+      letter-spacing: -.04em;
+      margin-bottom: 10px;
+    }
+
+    .age-card p,
+    .blocked-card p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 18px;
+      font-weight: 900;
+      transition: .15s transform, .15s filter;
+    }
+
+    .btn:active {
+      transform: scale(.98);
+    }
+
+    .btn-red {
+      background: linear-gradient(180deg, #ff4562, var(--red2));
+      padding: 17px 16px;
+      color: #fff;
+      box-shadow: 0 16px 32px rgba(185,0,37,.34);
+    }
+
+    .btn-dark {
+      background: #202338;
+      color: #d8dcee;
+      padding: 15px 16px;
+      margin-top: 10px;
+      border: 1px solid var(--line);
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: #fff;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 16px;
+      letter-spacing: -.03em;
+    }
+
+    .brand span {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      margin-top: 2px;
+    }
+
+    .top .mini {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 900;
+      color: #b9ffdd;
+      background: rgba(45,255,154,.10);
+      border: 1px solid rgba(45,255,154,.22);
+      border-radius: 999px;
+      padding: 7px 9px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.045));
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 16px;
+      margin-bottom: 10px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.30);
+    }
+
+    .hero h1 {
+      font-size: 37px;
+      line-height: .98;
+      letter-spacing: -.06em;
+      margin-bottom: 9px;
+    }
+
+    .hero h1 span {
+      color: var(--red);
+    }
+
+    .hero p {
+      font-size: 14px;
+      line-height: 1.48;
+      color: #d7dbee;
+      margin-bottom: 12px;
+    }
+
+    .hero p strong {
+      color: #fff;
+    }
+
+    .money-box {
+      background: rgba(45,255,154,.09);
+      border: 1px solid rgba(45,255,154,.20);
+      border-radius: 18px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .money-box strong {
+      display: block;
+      color: #b9ffdd;
+      font-size: 14px;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .money-box span {
+      display: block;
+      color: #d8ffe9;
+      font-size: 12px;
+      line-height: 1.45;
+      opacity: .9;
+    }
+
+    .quick {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .quick div {
+      background: rgba(255,255,255,.06);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+
+    .quick strong {
+      font-size: 15px;
+      display: block;
+    }
+
+    .quick span {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      margin-top: 3px;
+      font-weight: 700;
+    }
+
+    .games-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 12px 2px 8px;
+    }
+
+    .games-title strong {
+      font-size: 14px;
+    }
+
+    .games-title span {
+      font-size: 11px;
+      color: var(--yellow);
+      font-weight: 900;
+    }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .game {
+      min-height: 76px;
+      border-radius: 19px;
+      padding: 11px;
+      background: linear-gradient(160deg, var(--card2), var(--card));
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game::after {
+      content: "";
+      position: absolute;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      right: -20px;
+      top: -18px;
+      background: rgba(241,22,61,.18);
+    }
+
+    .emoji {
+      font-size: 24px;
+      margin-bottom: 6px;
+    }
+
+    .game strong {
+      display: block;
+      font-size: 13px;
+      line-height: 1.15;
+      position: relative;
+      z-index: 1;
+    }
+
+    .game span {
+      display: block;
+      color: var(--muted);
+      font-size: 10.5px;
+      margin-top: 4px;
+      font-weight: 750;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta {
+      position: sticky;
+      bottom: 10px;
+      z-index: 5;
+      margin: 10px 0 12px;
+    }
+
+    .main-btn {
+      min-height: 78px;
+      border-radius: 24px;
+      padding: 16px;
+      background: linear-gradient(180deg, #ff4d66, #c80029);
+      box-shadow:
+        0 20px 44px rgba(200,0,41,.42),
+        inset 0 1px 0 rgba(255,255,255,.35);
+      font-size: 19px;
+      gap: 10px;
+    }
+
+    .main-btn small {
+      display: block;
+      font-size: 12px;
+      opacity: .9;
+      margin-top: 2px;
+    }
+
+    .main-btn:hover {
+      filter: brightness(1.06);
+    }
+
+    .steps {
+      background: rgba(255,255,255,.055);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 10px;
+      padding: 8px 0;
+    }
+
+    .step + .step {
+      border-top: 1px solid var(--line);
+    }
+
+    .num {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: rgba(241,22,61,.14);
+      color: #ff9bad;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 950;
+    }
+
+    .step h3 {
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .step p {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+
+    .note {
+      text-align: center;
+      font-size: 11px;
+      color: #b8bed4;
+      margin-top: -3px;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      color: #7f879f;
+      font-size: 11px;
+      line-height: 1.5;
+      padding: 5px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- AGE GATE -->
+  <main id="age" class="center">
+    <section class="age-card">
+      <div class="badge">Verification</div>
+
+      <div class="age-logo">
+        <img src="download.png" alt="Earn money">
+      </div>
+
+      <h2>Are you 18+?</h2>
+      <p>Confirm your age to continue with the offer.</p>
+
+      <a href="#" class="btn btn-red" id="yesBtn">Yes, I am 18 or older</a>
+      <a href="#" class="btn btn-dark" id="noBtn">No, I am under 18</a>
+    </section>
+  </main>
+
+  <!-- BLOCKED PAGE -->
+  <main id="blocked" class="center hidden">
+    <section class="blocked-card">
+      <h2>Minimum age 18+</h2>
+      <p>This offer is only available to users who are 18 years old or older.</p>
+      <a href="#" class="btn btn-dark" id="backBtn">Back</a>
+    </section>
+  </main>
+
+  <!-- LANDING PAGE -->
+  <main id="landing" class="wrap hidden">
+
+    <header class="top">
+      <div class="logo">
+        <img src="download.png" alt="Earn money">
+      </div>
+
+      <div class="brand">
+        <strong>Earn Money</strong>
+        <span>Game Rewards</span>
+      </div>
+
+      <div class="mini">Active Today</div>
+    </header>
+
+    <section class="hero">
+      <h1>
+        Test games.<br>
+        <span>Earn real money.</span>
+      </h1>
+
+      <p>
+        Install the app, create a new account and test popular mobile games.
+        Complete simple game tasks and unlock real rewards.
+      </p>
+
+      <div class="money-box">
+        <strong>Receive a welcome bonus of $10 after creating your new account.</strong>
+        <span>Play games, complete missions and collect additional rewards from supported game offers.</span>
+      </div>
+
+      <div class="quick">
+        <div>
+          <strong>$10</strong>
+          <span>Bonus</span>
+        </div>
+
+        <div>
+          <strong>18+</strong>
+          <span>Age</span>
+        </div>
+
+        <div>
+          <strong>Real Money</strong>
+          <span>Rewards</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="games-title">
+      <strong>Popular games to test</strong>
+      <span>Start here</span>
+    </div>
+
+    <section class="games">
+      <div class="game">
+        <div class="emoji">🧩</div>
+        <strong>Block Blast</strong>
+        <span>Quick puzzles</span>
+      </div>
+
+      <div class="game">
+        <div class="emoji">🚇</div>
+        <strong>Subway Surfers</strong>
+        <span>Test runs</span>
+      </div>
+
+      <div class="game">
+        <div class="emoji">🎱</div>
+        <strong>8 Ball Pool</strong>
+        <span>Play matches</span>
+      </div>
+
+      <div class="game">
+        <div class="emoji">🍬</div>
+        <strong>Candy Crush</strong>
+        <span>Complete levels</span>
+      </div>
+    </section>
+
+    <!-- ORIGINAL BUTTON WITH YOUR LINK -->
+    <div class="cta">
+      <a
+        class="btn btn-red main-btn"
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://raintrcks.com/r/eyJ0IjoiZW1wZm9obGVuIiwidGlkIjoiNDM1YWY5Y2Y2OGRlZGU5Y2EyNWMiLCJ0cyI6MTc3NzM3MzI5NjU0Mn0?s2=zzz&feb=1"
+        id="mainCta"
+      >
+        <span>
+          Start earning money now
+          <small>Download & create a free account</small>
+        </span>
+      </a>
+    </div>
+
+    <p class="note">
+      For new accounts only. Rewards depend on available offers and completed tasks.
+    </p>
+
+    <section class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <h3>Install the app</h3>
+          <p>Tap the red button and open the offer on your phone.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <h3>Create a new account</h3>
+          <p>Register for free and unlock your game rewards dashboard.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <h3>Test games & collect rewards</h3>
+          <p>Choose games, complete missions and earn rewards from supported offers.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Privacy Policy · Terms of Use · Disclaimer<br>
+      © 2026 Earn Money
+    </footer>
+
+  </main>
+
+  <script>
+    const age = document.getElementById('age');
+    const landing = document.getElementById('landing');
+    const blocked = document.getElementById('blocked');
+
+    function show(page) {
+      age.classList.add('hidden');
+      landing.classList.add('hidden');
+      blocked.classList.add('hidden');
+
+      page.classList.remove('hidden');
+      window.scrollTo(0, 0);
+    }
+
+    document.getElementById('yesBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      show(landing);
+    });
+
+    document.getElementById('noBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      show(blocked);
+    });
+
+    document.getElementById('backBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      show(age);
+    });
+
+    const qs = window.location.search.replace(/^\?/, '');
+
+    if (qs) {
+      const cta = document.getElementById('mainCta');
+      cta.href += (cta.href.includes('?') ? '&' : '?') + qs;
+    }
+  </script>
+
+</body>
+</html>
