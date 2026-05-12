@@ -43,121 +43,11 @@
       color: inherit;
     }
 
-    .hidden {
-      display: none !important;
-    }
-
     .wrap {
       width: 100%;
       max-width: 430px;
       margin: 0 auto;
       padding: 12px 12px 28px;
-    }
-
-    .center {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-    }
-
-    .age-card,
-    .blocked-card {
-      width: 100%;
-      max-width: 390px;
-      background: rgba(20,22,39,.94);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 24px 18px;
-      text-align: center;
-      box-shadow: 0 22px 55px rgba(0,0,0,.35);
-    }
-
-    .age-logo {
-      width: 82px;
-      height: 82px;
-      margin: 0 auto 16px;
-      border-radius: 22px;
-      background: #fff;
-      overflow: hidden;
-      box-shadow: 0 0 0 7px rgba(241,22,61,.10);
-    }
-
-    .age-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .badge {
-      display: inline-flex;
-      gap: 7px;
-      align-items: center;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(241,22,61,.12);
-      border: 1px solid rgba(241,22,61,.24);
-      color: #ffb3c1;
-      font-size: 11px;
-      font-weight: 900;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
-
-    .badge::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--red);
-    }
-
-    h2 {
-      font-size: 34px;
-      line-height: 1.03;
-      letter-spacing: -.04em;
-      margin-bottom: 10px;
-    }
-
-    .age-card p,
-    .blocked-card p {
-      font-size: 14px;
-      line-height: 1.55;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      border: 0;
-      cursor: pointer;
-      width: 100%;
-      border-radius: 18px;
-      font-weight: 900;
-      transition: .15s transform, .15s filter;
-    }
-
-    .btn:active {
-      transform: scale(.98);
-    }
-
-    .btn-red {
-      background: linear-gradient(180deg, #ff4562, var(--red2));
-      padding: 17px 16px;
-      color: #fff;
-      box-shadow: 0 16px 32px rgba(185,0,37,.34);
-    }
-
-    .btn-dark {
-      background: #202338;
-      color: #d8dcee;
-      padding: 15px 16px;
-      margin-top: 10px;
-      border: 1px solid var(--line);
     }
 
     .top {
@@ -233,10 +123,6 @@
       line-height: 1.48;
       color: #d7dbee;
       margin-bottom: 12px;
-    }
-
-    .hero p strong {
-      color: #fff;
     }
 
     .money-box {
@@ -359,6 +245,29 @@
       z-index: 1;
     }
 
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: 0;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 18px;
+      font-weight: 900;
+      transition: .15s transform, .15s filter;
+    }
+
+    .btn:active {
+      transform: scale(.98);
+    }
+
+    .btn-red {
+      background: linear-gradient(180deg, #ff4562, var(--red2));
+      color: #fff;
+      box-shadow: 0 16px 32px rgba(185,0,37,.34);
+    }
+
     .cta {
       position: sticky;
       bottom: 10px;
@@ -369,24 +278,52 @@
     .main-btn {
       min-height: 78px;
       border-radius: 24px;
-      padding: 16px;
+      padding: 14px 16px;
       background: linear-gradient(180deg, #ff4d66, #c80029);
       box-shadow:
         0 20px 44px rgba(200,0,41,.42),
         inset 0 1px 0 rgba(255,255,255,.35);
-      font-size: 19px;
-      gap: 10px;
-    }
-
-    .main-btn small {
-      display: block;
-      font-size: 12px;
-      opacity: .9;
-      margin-top: 2px;
+      gap: 14px;
+      justify-content: flex-start;
     }
 
     .main-btn:hover {
       filter: brightness(1.06);
+    }
+
+    .age-mark {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 950;
+      letter-spacing: -.04em;
+      flex: 0 0 auto;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.22);
+    }
+
+    .btn-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1.15;
+    }
+
+    .btn-text strong {
+      font-size: 21px;
+      letter-spacing: -.03em;
+    }
+
+    .btn-text small {
+      display: block;
+      font-size: 12px;
+      opacity: .92;
+      margin-top: 5px;
     }
 
     .steps {
@@ -451,34 +388,7 @@
 
 <body>
 
-  <!-- AGE GATE -->
-  <main id="age" class="center">
-    <section class="age-card">
-      <div class="badge">Verifizierung</div>
-
-      <div class="age-logo">
-        <img src="download.png" alt="Geld verdienen">
-      </div>
-
-      <h2>Bist du 18+?</h2>
-      <p>Bestätige dein Alter, um mit dem Angebot fortzufahren.</p>
-
-      <a href="#" class="btn btn-red" id="yesBtn">Ja, ich bin 18 oder älter</a>
-      <a href="#" class="btn btn-dark" id="noBtn">Nein, ich bin unter 18</a>
-    </section>
-  </main>
-
-  <!-- BLOCKED PAGE -->
-  <main id="blocked" class="center hidden">
-    <section class="blocked-card">
-      <h2>Mindestalter 18+</h2>
-      <p>Dieses Angebot ist nur für Nutzer verfügbar, die mindestens 18 Jahre alt sind.</p>
-      <a href="#" class="btn btn-dark" id="backBtn">Zurück</a>
-    </section>
-  </main>
-
-  <!-- LANDING PAGE -->
-  <main id="landing" class="wrap hidden">
+  <main id="landing" class="wrap">
 
     <header class="top">
       <div class="logo">
@@ -557,7 +467,6 @@
       </div>
     </section>
 
-    <!-- ORIGINAL BUTTON WITH YOUR LINK -->
     <div class="cta">
       <a
         class="btn btn-red main-btn"
@@ -566,15 +475,17 @@
         href="https://raintrkr.com/r/eyJ0IjoidGVzdGVydXAtYSIsInRpZCI6IjQzNWFmOWNmNjhkZWRlOWNhMjVjIiwidHMiOjE3Nzc4NzgyNzI4Njh9?s2=azur&feb=1"
         id="mainCta"
       >
-        <span>
-          Jetzt Geld verdienen
+        <span class="age-mark">18+</span>
+
+        <span class="btn-text">
+          <strong>Jetzt Geld verdienen</strong>
           <small>App herunterladen & kostenloses Konto erstellen</small>
         </span>
       </a>
     </div>
 
     <p class="note">
-      Nur für neue Konten. Belohnungen hängen von verfügbaren Angeboten und abgeschlossenen Aufgaben ab.
+      Nur für neue Konten ab 18 Jahren. Belohnungen hängen von verfügbaren Angeboten und abgeschlossenen Aufgaben ab.
     </p>
 
     <section class="steps">
@@ -611,34 +522,6 @@
   </main>
 
   <script>
-    const age = document.getElementById('age');
-    const landing = document.getElementById('landing');
-    const blocked = document.getElementById('blocked');
-
-    function show(page) {
-      age.classList.add('hidden');
-      landing.classList.add('hidden');
-      blocked.classList.add('hidden');
-
-      page.classList.remove('hidden');
-      window.scrollTo(0, 0);
-    }
-
-    document.getElementById('yesBtn').addEventListener('click', function(e) {
-      e.preventDefault();
-      show(landing);
-    });
-
-    document.getElementById('noBtn').addEventListener('click', function(e) {
-      e.preventDefault();
-      show(blocked);
-    });
-
-    document.getElementById('backBtn').addEventListener('click', function(e) {
-      e.preventDefault();
-      show(age);
-    });
-
     const qs = window.location.search.replace(/^\?/, '');
 
     if (qs) {
