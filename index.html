@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Earn Money - Game Rewards</title>
+  <title>Geld verdienen - Video Belohnungen</title>
   <link rel="icon" href="data:,">
   <link rel="preload" as="image" href="download.png" />
 
@@ -291,31 +291,31 @@
       font-weight: 700;
     }
 
-    .games-title {
+    .videos-title {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin: 12px 2px 8px;
     }
 
-    .games-title strong {
+    .videos-title strong {
       font-size: 14px;
     }
 
-    .games-title span {
+    .videos-title span {
       font-size: 11px;
       color: var(--yellow);
       font-weight: 900;
     }
 
-    .games {
+    .videos {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 8px;
       margin-bottom: 12px;
     }
 
-    .game {
+    .video {
       min-height: 76px;
       border-radius: 19px;
       padding: 11px;
@@ -325,7 +325,7 @@
       overflow: hidden;
     }
 
-    .game::after {
+    .video::after {
       content: "";
       position: absolute;
       width: 65px;
@@ -341,7 +341,7 @@
       margin-bottom: 6px;
     }
 
-    .game strong {
+    .video strong {
       display: block;
       font-size: 13px;
       line-height: 1.15;
@@ -349,7 +349,7 @@
       z-index: 1;
     }
 
-    .game span {
+    .video span {
       display: block;
       color: var(--muted);
       font-size: 10.5px;
@@ -454,26 +454,26 @@
   <!-- AGE GATE -->
   <main id="age" class="center">
     <section class="age-card">
-      <div class="badge">Verification</div>
+      <div class="badge">Verifizierung</div>
 
       <div class="age-logo">
-        <img src="download.png" alt="Earn money">
+        <img src="download.png" alt="Geld verdienen">
       </div>
 
-      <h2>Are you 18+?</h2>
-      <p>Confirm your age to continue with the offer.</p>
+      <h2>Bist du 18+?</h2>
+      <p>Bestätige dein Alter, um mit dem Angebot fortzufahren.</p>
 
-      <a href="#" class="btn btn-red" id="yesBtn">Yes, I am 18 or older</a>
-      <a href="#" class="btn btn-dark" id="noBtn">No, I am under 18</a>
+      <a href="#" class="btn btn-red" id="yesBtn">Ja, ich bin 18 oder älter</a>
+      <a href="#" class="btn btn-dark" id="noBtn">Nein, ich bin unter 18</a>
     </section>
   </main>
 
   <!-- BLOCKED PAGE -->
   <main id="blocked" class="center hidden">
     <section class="blocked-card">
-      <h2>Minimum age 18+</h2>
-      <p>This offer is only available to users who are 18 years old or older.</p>
-      <a href="#" class="btn btn-dark" id="backBtn">Back</a>
+      <h2>Mindestalter 18+</h2>
+      <p>Dieses Angebot ist nur für Nutzer verfügbar, die mindestens 18 Jahre alt sind.</p>
+      <a href="#" class="btn btn-dark" id="backBtn">Zurück</a>
     </section>
   </main>
 
@@ -482,79 +482,79 @@
 
     <header class="top">
       <div class="logo">
-        <img src="download.png" alt="Earn money">
+        <img src="download.png" alt="Geld verdienen">
       </div>
 
       <div class="brand">
-        <strong>Earn Money</strong>
-        <span>Game Rewards</span>
+        <strong>Geld verdienen</strong>
+        <span>Video Belohnungen</span>
       </div>
 
-      <div class="mini">Active Today</div>
+      <div class="mini">Heute aktiv</div>
     </header>
 
     <section class="hero">
       <h1>
-        Test games.<br>
-        <span>Earn real money.</span>
+        Videos ansehen.<br>
+        <span>Echtes Geld verdienen.</span>
       </h1>
 
       <p>
-        Install the app, create a new account and test popular mobile games.
-        Complete simple game tasks and unlock real rewards.
+        Installiere die App, erstelle ein neues Konto und sieh dir verfügbare Videos an.
+        Erledige einfache Video-Aufgaben und schalte echte Belohnungen frei.
       </p>
 
       <div class="money-box">
-        <strong>Receive a welcome bonus of $10 after creating your new account.</strong>
-        <span>Play games, complete missions and collect additional rewards from supported game offers.</span>
+        <strong>Erhalte einen Willkommensbonus von 10 $, nachdem du dein neues Konto erstellt hast.</strong>
+        <span>Sieh dir Videos an, erledige einfache Aufgaben und sammle zusätzliche Belohnungen aus unterstützten Video-Angeboten.</span>
       </div>
 
       <div class="quick">
         <div>
-          <strong>$10</strong>
+          <strong>10 $</strong>
           <span>Bonus</span>
         </div>
 
         <div>
           <strong>18+</strong>
-          <span>Age</span>
+          <span>Alter</span>
         </div>
 
         <div>
-          <strong>Real Money</strong>
-          <span>Rewards</span>
+          <strong>Echtes Geld</strong>
+          <span>Belohnungen</span>
         </div>
       </div>
     </section>
 
-    <div class="games-title">
-      <strong>Popular games to test</strong>
-      <span>Start here</span>
+    <div class="videos-title">
+      <strong>Beliebte Video-Aufgaben</strong>
+      <span>Hier starten</span>
     </div>
 
-    <section class="games">
-      <div class="game">
-        <div class="emoji">🧩</div>
-        <strong>Block Blast</strong>
-        <span>Quick puzzles</span>
+    <section class="videos">
+      <div class="video">
+        <div class="emoji">🎬</div>
+        <strong>Kurze Clips</strong>
+        <span>Schnell ansehen</span>
       </div>
 
-      <div class="game">
-        <div class="emoji">🚇</div>
-        <strong>Subway Surfers</strong>
-        <span>Test runs</span>
+      <div class="video">
+        <div class="emoji">📱</div>
+        <strong>App-Videos</strong>
+        <span>Neue Apps entdecken</span>
       </div>
 
-      <div class="game">
-        <div class="emoji">🎱</div>
-        <strong>8 Ball Pool</strong>
-        <span>Play matches</span>
+      <div class="video">
+        <div class="emoji">▶️</div>
+        <strong>Produktvideos</strong>
+        <span>Infos ansehen</span>
       </div>
 
-      <div class="game">
-        <div class="emoji">🍬</div>
-        <strong>Candy Crush</strong>
-        <span>Complete levels</span>
+      <div class="video">
+        <div class="emoji">⭐</div>
+        <strong>Entertainment</strong>
+        <span>Videos & Angebote</span>
       </div>
     </section>
 
@@ -568,45 +568,45 @@
         id="mainCta"
       >
         <span>
-          Start earning money now
-          <small>Download & create a free account</small>
+          Jetzt Geld verdienen
+          <small>App herunterladen & kostenloses Konto erstellen</small>
         </span>
       </a>
     </div>
 
     <p class="note">
-      For new accounts only. Rewards depend on available offers and completed tasks.
+      Nur für neue Konten. Belohnungen hängen von verfügbaren Angeboten und abgeschlossenen Aufgaben ab.
     </p>
 
     <section class="steps">
       <div class="step">
         <div class="num">1</div>
         <div>
-          <h3>Install the app</h3>
-          <p>Tap the red button and open the offer on your phone.</p>
+          <h3>App installieren</h3>
+          <p>Tippe auf den roten Button und öffne das Angebot auf deinem Smartphone.</p>
         </div>
       </div>
 
       <div class="step">
         <div class="num">2</div>
         <div>
-          <h3>Create a new account</h3>
-          <p>Register for free and unlock your game rewards dashboard.</p>
+          <h3>Neues Konto erstellen</h3>
+          <p>Registriere dich kostenlos und öffne dein Dashboard für Video-Belohnungen.</p>
         </div>
       </div>
 
       <div class="step">
         <div class="num">3</div>
         <div>
-          <h3>Test games & collect rewards</h3>
-          <p>Choose games, complete missions and earn rewards from supported offers.</p>
+          <h3>Videos ansehen & Belohnungen sammeln</h3>
+          <p>Wähle verfügbare Video-Angebote, erledige einfache Aufgaben und sammle Belohnungen.</p>
         </div>
       </div>
     </section>
 
     <footer>
-      Privacy Policy · Terms of Use · Disclaimer<br>
-      © 2026 Earn Money
+      Datenschutz · Nutzungsbedingungen · Haftungsausschluss<br>
+      © 2026 Geld verdienen
     </footer>
 
   </main>
